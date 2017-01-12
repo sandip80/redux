@@ -5,7 +5,7 @@ module Redux {
         game: Phaser.Game;
 
         constructor() {
-            this.game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, 'game', {
+            this.game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, 'body', {
                create: this.create, preload: this.preload 
             });
         }
