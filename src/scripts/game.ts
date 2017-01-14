@@ -31,7 +31,8 @@ module Redux {
             var background = this.game.add.sprite(0, 0, 'blue_desert');
             background.height = window.innerHeight;
             background.width = background.height * 16 / 9;
-            var spriteComplete = this.game.add.sprite((background.width - 128) / 2, (background.height - 256) / 2, 'sprite_complete');
+            background.x = (window.innerWidth - background.width) / 2;
+            var spriteComplete = this.game.add.sprite((window.innerWidth - 128) / 2, (background.height - 256) / 2, 'sprite_complete');
             spriteComplete.animations.add('play', Phaser.Animation.generateFrameNames('alienBlue_walk', 1, 2, '.png'), 7, true);
             spriteComplete.animations.play('play');
         }
