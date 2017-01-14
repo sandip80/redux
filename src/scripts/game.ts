@@ -6,16 +6,14 @@ module Redux {
 
         constructor() {
             this.game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, 'body', {
-               create: this.create, preload: this.preload, update: this.update
+               preload: this.preload, update: this.update
             });
         }
         
-        create() {
-            
-        }
-        
         preload() {
+            // Spritesheers
             
+            // Sounds
         }
         
         update() {

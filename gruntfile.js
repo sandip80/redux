@@ -12,6 +12,18 @@ module.exports = function (grunt) {
                 }
             }
         },
+        
+        uglify: {
+            options: {
+                mangle: false
+            },
+            
+            my_target: {
+                files: {
+                    'public/game.min.js': ['public/js/*.js']
+                }
+            }
+        },
 
         copy: {
             dev: {
@@ -30,14 +42,15 @@ module.exports = function (grunt) {
                     },
                     {
                         src: 'src/phaser/phaser.js',
-                        dest: 'public/vendor/phaser/phaser.js'
+                        dest: 'public/phaser.js'
                     }
                 ]
             }
         },
 
         clean: {
-            dev: ['public/**/*']
+            dev: ['public/**/*'],
+            rel: ['public/js']
         },
 
         watch: {
@@ -53,6 +66,7 @@ module.exports = function (grunt) {
     });
 
     grunt.loadNpmTasks('grunt-ts');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -60,6 +74,8 @@ module.exports = function (grunt) {
     grunt.registerTask('dev', [
         'clean:dev',
         'ts:dev',
+        'uglify',
+        'clean:rel',
         'copy:dev'
     ]);
 };
