@@ -6,7 +6,7 @@ module Redux {
 
         constructor() {
             this.game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, 'body', {
-               create: this.create, preload: this.preload 
+               create: this.create, preload: this.preload, update: this.update
             });
         }
         
@@ -15,6 +15,10 @@ module Redux {
         }
         
         preload() {
+            
+        }
+        
+        update() {
             
         }
     }
