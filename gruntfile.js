@@ -75,7 +75,6 @@ module.exports = function (grunt) {
         'clean:dev',
         'ts:dev',
         'uglify',
-        'clean:rel',
         'copy:dev'
     ]);
 };
