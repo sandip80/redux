@@ -4,7 +4,7 @@ var http = require('http')
 
 
 var file = new static.Server('./public', {
-    cache: 3600,
+	cache: 0,
     gzip: true
 })
 

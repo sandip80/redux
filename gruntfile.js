@@ -20,7 +20,7 @@ module.exports = function (grunt) {
             
             my_target: {
                 files: {
-                    'public/game.min.js': ['public/js/*.js']
+                    'public/game.min.js': ['public/js/*.js', 'public/js/state/*.js']
                 }
             }
         },
@@ -75,6 +75,7 @@ module.exports = function (grunt) {
         'clean:dev',
         'ts:dev',
         'uglify',
+        'clean:rel',
         'copy:dev'
     ]);
 };

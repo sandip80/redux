@@ -3,3 +3,4 @@
 /// <reference path="./phaser/pixi.d.ts" />
 /// <reference path="./scripts/game.ts" />
 /// <reference path="./scripts/state/menu.ts" />
+/// <reference path="./scripts/state/incompatible.ts" />

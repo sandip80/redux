@@ -10,9 +10,20 @@
         html, body {
             margin: 0;
         }
+        #main-game {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            z-index: 100;
+            align-content: center !important;
+        }
     </style>
 </head>
 <body>
+
+<div id="main-game"></div>
 
 <script src="phaser.js"></script>
 

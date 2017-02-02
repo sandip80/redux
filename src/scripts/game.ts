@@ -3,9 +3,10 @@
 module Redux {
     export class Game {
         game: Phaser.Game;
+        aspectRatio: Number;
         
         constructor() {
-            this.game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, 'body', {
+            this.game = new Phaser.Game(1600, 900, Phaser.AUTO, 'main-game', {
                preload: this.preload, create: this.create
             });
         }
@@ -30,7 +31,11 @@ module Redux {
         
         create() {
             this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-            this.game.state.add('Menu', ReduxMain.Menu, true);
+            if (window.innerWidth > 768 && window.innerWidth / window.innerHeight > 1) {
+                this.game.state.add('Menu', ReduxMain.Menu, true);
+            } else {
+                this.game.state.add('Incompatible', ReduxIncompatible.Incompatible, true);
+            }
         }
     }
 }
