@@ -351,7 +351,7 @@
 	<SubTexture name="wormGreen.png" x="2990" y="1690" width="128" height="128"/>
 	<SubTexture name="wormGreen_dead.png" x="2990" y="1560" width="128" height="128"/>
 	<SubTexture name="wormGreen_move.png" x="2990" y="1430" width="128" height="128"/>
-	<SubTexture name="wormPink.png" x="2990" y="1300" width="128" height="128"/>
+	<SubTexture name="wormPink1.png" x="2990" y="1300" width="128" height="128"/>
 	<SubTexture name="wormPink_dead.png" x="2990" y="1170" width="128" height="128"/>
-	<SubTexture name="wormPink_move.png" x="2990" y="1040" width="128" height="128"/>
+	<SubTexture name="wormPink2.png" x="2990" y="1040" width="128" height="128"/>
 </TextureAtlas>

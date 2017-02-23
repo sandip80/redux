@@ -20,6 +20,7 @@ module ReduxMain {
         ];
         // length of the map = 50 blocks, width of the map = 9
         tileMap = {};
+        entityMap = {};
 
         constructor() {
             super();
@@ -33,9 +34,10 @@ module ReduxMain {
             this.entity = this.game.add.sprite(this.game.width / 2, this.game.height / 2, '');
             //this.game.camera.follow(this.entity);
             this.game.camera.x += this.game.width * 3;
-            var worm = this.game.add.sprite(this.game.width * 3, 0, 'sprite_complete');
-            worm.animations.add('move', Phaser.Animation.generateFrameNames('torch', 1, 2, '.png', 1), 4, true);
-            worm.animations.play('move');
+            this.entityMap['worm'] = this.game.add.sprite(this.game.width * 3, 0, 'sprite_complete');
+            this.entityMap['worm'].animations.add('move', Phaser.Animation.generateFrameNames('wormPink', 1, 2, '.png'), 2, true);
+            this.entityMap['worm'].animations.play('move');
+            this.entityMap['worm'].body.gravity.y += 9.8;
             //Debug:
             //this.debugText = this.game.add.text(0, 0, this.createDebugString(), {font: "32px Arial", fill: '#32cde0', wordWrap: true, wordWrapWidth: this.game.width, align: 'center'});
 
@@ -87,16 +89,21 @@ module ReduxMain {
         }
 
         update() {
-            // for (let spriteSheet in this.tileMap) {
-            //     for (let sprite in this.tileMap[spriteSheet]) {
-            //         for (let x in this.tileMap[spriteSheet][sprite]) {
-            //             for (let y in this.tileMap[spriteSheet][sprite][x]) {
-            //                 console.log(this.tileMap[spriteSheet][sprite][x][y]);
-            //                 this.tileMap[spriteSheet][sprite][x][y].x -= 1;
-            //             }
-            //         }
-            //     }
-            // }
+            for (let spriteSheet in this.tileMap) {
+                 for (let sprite in this.tileMap[spriteSheet]) {
+                     for (let x in this.tileMap[spriteSheet][sprite]) {
+                         for (let y in this.tileMap[spriteSheet][sprite][x]) {
+                             var tile  = this.tileMap[spriteSheet][sprite][x][y];
+                             for (let entity in this.entityMap) {
+                               console.log(this.entityMap[entity].body.velocity);
+                               this.game.physics.arcade.collide(entity, tile, (entity, tile) => {
+                                 this.entityMap[entity].body.velocity = 0;
+                               });
+                             }
+                         }
+                     }
+                 }
+             }
             // this.entity.x += 0;
             // this.title.x += 0;
             // this.game.world.wrap(this.entity, -(this.game.width / 2), false, true, false);
