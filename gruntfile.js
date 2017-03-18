@@ -3,7 +3,7 @@ module.exports = function (grunt) {
         ts: {
             dev: {
                 src: ['src/scripts/**/*.ts'],
-                dest: 'public/js',
+                dest: 'build',
                 options: {
                     module: 'amd', //or commonjs
                     target: 'es5', //or es3
@@ -20,7 +20,7 @@ module.exports = function (grunt) {
             
             my_target: {
                 files: {
-                    'public/game.min.js': ['public/js/*.js', 'public/js/state/*.js']
+                    'public/game.min.js': ['build/*.js', 'build/**/*.js']
                 }
             }
         },
@@ -49,8 +49,7 @@ module.exports = function (grunt) {
         },
 
         clean: {
-            dev: ['public/**/*'],
-            rel: ['public/js']
+            dev: ['public/**/*', 'build'],
         },
 
         watch: {
@@ -75,7 +74,6 @@ module.exports = function (grunt) {
         'clean:dev',
         'ts:dev',
         'uglify',
-        'clean:rel',
         'copy:dev'
     ]);
 };
